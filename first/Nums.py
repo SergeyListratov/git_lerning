@@ -3,6 +3,10 @@ def plus(a, b):
     return y
 
 
+def nums(a):
+    pass
+
+
 def minus(a, b):
     pass
 
