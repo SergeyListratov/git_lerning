@@ -12,4 +12,6 @@ if len(d2) == 1: print(list(d.values())[0].strftime('%d.%m.%Y'), *d2)
 else:
     print(list(d.values())[0].strftime('%d.%m.%Y'), len(d2))
 
+#Ntcn
+
 
