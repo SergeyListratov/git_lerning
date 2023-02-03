@@ -8,23 +8,22 @@ data = ['Иван Петров 30.12.1997',
 
 
 m_str = '29.12.2021'
-a_name = 'Дни рождения не планируются'
-min_bd = datetime(day=31, month= 12, year=9999)
-# a_data = datetime.strptime(input(), '%d.%m.%Y')
-# a_data = datetime.strptime(m, '%d.%m.%Y')
-dat_set = set(map(lambda k: (k.day, k.month), [datetime.strptime(m_str, '%d.%m.%Y') + timedelta(days=j) for j in range(1, 8)]))
-print(dat_set)
-
-# for i in sorted([input().split() for _ in range(int(input()))], key=lambda j: datetime.strptime(j[2], '%d.%m.%Y')):
-for i in data:
-    b_data = datetime.strptime(i.split()[2], '%d.%m.%Y')
-    if (b_data.day, b_data.month) in dat_set and b_data < min_bd:
-        min_bd = b_data
-        a_name = f'{i.split()[0]} {i.split()[1]}'
-print(a_name)
 
 
-# a_dict = {}
-# for i in sorted([input().split() for _ in range(int(input()))], key=lambda j: datetime.strptime(j[2], '%d.%m.%Y')):
-#     a_dict[i[2]] = a_dict.get(i[2], 0) + 1
-# [print(k) for k, v in a_dict.items() if v == max(a_dict.values())]
+fmt = '%d.%m.%Y'
+date = datetime.strptime(m_str, fmt)
+emps = [(datetime.strptime(d, fmt), ' '.join(n)) \
+        for *n, d in (i.split() for i in data)]
+ucbd = [*filter(lambda x: 0 < (x[0].replace(year = date.year) - date).days <= 7, emps)]
+
+print(max(ucbd)[1] if ucbd else 'Дни рождения не планируются')
+
+
+
+# fmt = '%d.%m.%Y'
+# date = datetime.strptime(input(), fmt)
+# emps = [(datetime.strptime(d, fmt), ' '.join(n)) \
+#         for *n, d in (input().split() for _ in range(int(input())))]
+# ucbd = [*filter(lambda x: 0 < (x[0].replace(year = date.year) - date).days <= 7, emps)]
+#
+# print(max(ucbd)[1] if ucbd else 'Дни рождения не планируются')
