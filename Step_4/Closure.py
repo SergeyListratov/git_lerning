@@ -29,10 +29,30 @@ def counter():
     return inner
 
 
+def pow_(base):
+    def inner(value):
+        return value ** base
+
+    return inner
+
+
+def pow_1(base):
+    return lambda value: value ** base
+
+
 if __name__ == '__main__':
+    p = pow_1(3)
+    # pow_2 = pow_(3)
+    print(p(4))
+    # print(pow_2(3)
+    # pow_ = pow_()
+
+
     # boys = names()
-    # girls = names()
+    # # girls = names()
     # print(boys('Vasya'))
+    # print(boys.__closure__[0].cell_contents)
+
     # print(boys('Petya'))
     # print(boys('Dimaa'))
     # print(girls('Olya'))
@@ -40,10 +60,10 @@ if __name__ == '__main__':
     # print(girls('Ira'))
     # avg = average()
     # print(avg(10))
-    # print(avg(20))
-    # print(avg(30))
-    count = counter()
-    print(count(1))
-    print(count(1))
-    print(count(-3))
+    # # print(avg(20))
+    # # print(avg(30))
+    # count = counter()
+    # print(count(1))
+    # print(count(1))
+    # print(count(-3))
 
