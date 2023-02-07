@@ -16,7 +16,7 @@ def calculator(expression):
                 elif sign == '/':
                     return left / right
             except (ValueError, TypeError):
-                raise ValueError('Выражение должно осдержать 2 целых числа и 1 знак')
+                raise ValueError('Выражение должно содержать 2 целых числа и 1 знак')
 
 
 if __name__ == '__main__':
