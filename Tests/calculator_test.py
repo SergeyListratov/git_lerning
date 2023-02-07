@@ -30,6 +30,16 @@ class CalculatorTest(TestCase):
             calculator('2+2*10')
         self.assertEqual('Выражение должно осдержать 2 целых числа и 1 знак', e.exception.args[0])
 
+    def test_no_ints(self):
+        with self.assertRaises(ValueError) as e:
+            calculator('2.2*3.0')
+        self.assertEqual('Выражение должно осдержать 2 целых числа и 1 знак', e.exception.args[0])
+
+    def test_strings(self):
+        with self.assertRaises(ValueError) as e:
+            calculator('a+b')
+        self.assertEqual('Выражение должно осдержать 2 целых числа и 1 знак', e.exception.args[0])
+
 
 if __name__ == '__main__':
     main()
