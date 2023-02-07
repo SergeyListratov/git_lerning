@@ -11,7 +11,7 @@ def typed(type_):
     return real_decorator
 
 
-@typed(int)
+# @typed(int)
 def calculate(a, b, c):
     # logic
     return a + b + c
@@ -24,6 +24,10 @@ def convert(a, b):
 
 
 if __name__ == '__main__':
-    #calculate   ==  typed_int(calculate)
+    #calculate   ==  typed (int) -- calculate
     print(calculate(1, 2, 3))
-    print(convert('a', '2'))
+    # print(convert('a', '2'))
+    calculate = typed(int)(calculate)
+    print(calculate(1, 2, 3))
+
+    print(calculate(1, 2, 3))
